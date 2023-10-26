@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="jdhatton" id="000-init-schema-sqlserver-or-fallback" runOnChange="false">
+        <sqlFile dbms="mssql"
+                 path="./changes/000A-init-schema-sqlserver.sql"
+                 relativeToChangelogFile="true"
+        />
+        <sqlFile dbms="!mssql"
+                 path="./changes/000B-init-schema-non-sqlserver.sql"
+                 relativeToChangelogFile="true"
+        />
+    </changeSet>
+
+    <include file="./changes/001-init-tables.sql" relativeToChangelogFile="true"/>
+
+
+</databaseChangeLog>

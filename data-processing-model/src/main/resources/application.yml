@@ -1,0 +1,7 @@
+feign:
+  client:
+    default-config:
+      encoder: feign.jackson.JacksonEncoder
+      decoder: feign.jackson.JacksonDecoder
+      contract: org.springframework.cloud.openfeign.support.SpringMvcContract
+

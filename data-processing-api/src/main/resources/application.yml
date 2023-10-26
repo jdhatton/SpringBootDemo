@@ -1,0 +1,76 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=JDDEMO;sendStringParametersAsUnicode=false;applicationName=data-processing;encrypt=false
+    username: sa
+    password: Password123
+    hikari:
+      pool-name: HikariPool-DataProcessing
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    properties:
+      hibernate:
+        default_schema: jd
+        hbm2ddl.auto: none
+        dialect: org.hibernate.dialect.SQLServer2016Dialect
+        proc.param_null_passing: true
+        show_sql: false
+        use_sql_comments: true
+        format_sql: false
+        generate_statistics: false
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 25
+          time_zone: UTC
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  jackson:
+    default-property-inclusion: non_null
+    deserialization:
+      READ_UNKNOWN_ENUM_VALUES_AS_NULL: true
+
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5670
+
+  liquibase:
+    enabled: false
+    contexts: test
+    change-log: classpath:db/liquibase/changelog-master.xml
+    liquibase-schema: jd
+
+  sql:
+    init:
+      continue-on-error: false
+      mode: never
+
+#allow for longer calls before timing out
+feign:
+  client:
+    config:
+      notes:
+        connectTimeout: 2000
+        readTimeout: 180000
+
+logging:
+  level:
+    org.jd: INFO
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+server:
+  servlet:
+    context-path: /api/dataProcessing
+  port: 7000
+
+auth0:
+# this would be needed for the security to work.
+
+application:
+  version: 1.0.0
