@@ -2,7 +2,7 @@
 --changeset jdhatton:001-init-tables
 
 
-create table fap.note
+create table jd.note
 (
     id                   bigint identity primary key,
     company              varchar(128) not null,

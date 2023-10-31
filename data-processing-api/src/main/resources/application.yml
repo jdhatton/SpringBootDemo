@@ -34,22 +34,21 @@ spring:
     deserialization:
       READ_UNKNOWN_ENUM_VALUES_AS_NULL: true
 
-  rabbitmq:
-    username: guest
-    password: guest
-    host: localhost
-    port: 5670
-
   liquibase:
-    enabled: false
-    contexts: test
-    change-log: classpath:db/liquibase/changelog-master.xml
+    enabled: true
+    change-log: classpath:db.liquibase/changelog-master.xml
     liquibase-schema: jd
 
   sql:
     init:
       continue-on-error: false
       mode: never
+
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5670
 
 #allow for longer calls before timing out
 feign:

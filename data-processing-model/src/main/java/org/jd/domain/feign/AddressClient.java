@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "address", url = "${data-processing.url}/address")
+@FeignClient(name = "addresses", url = "${data-processing.url}/addresses")
 public interface AddressClient {
 
     @PostMapping("format")
