@@ -4,6 +4,8 @@ Simple demonstration of spring boot micro service architecture and implementatio
 
 I added the simple code first to demonstrate how I code spring-boot domain driven design micro services, then started adding features to demonstrate security, testing, liquibase and how it helps with developemnt and testing. My goal was to have a fully functional docker setup you could run that would have sqlServer, Rabbit, and the base configuration for each. I ran out of time on those efforts. Due to time constraints I went ahead and pushed up what I have as a coding exercise. 
 
+Swagger Docs: http://localhost:7000/api/dataProcessing/swagger-ui/#/
+
 This includes: 
  - Spring boot application with rest controllers
  - Core module encapsulating the service level code, object mappers, entities, and repositories for DB interaction.
