@@ -3,6 +3,7 @@ package org.jd.dataprocessing.api.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -44,6 +45,11 @@ public class SwaggerConfig {
                         new ResponseBuilder().code("401")
                                 .description("Access Denied!!!!!").build()
                 ));
+    }
+
+    @Bean
+    public InternalResourceViewResolver defaultViewResolver() {
+        return new InternalResourceViewResolver();
     }
 
     private ApiKey securityScheme() {
