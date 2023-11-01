@@ -6,13 +6,15 @@ I added the simple code first to demonstrate how I code spring-boot domain drive
 
 Swagger Docs: http://localhost:7000/api/dataProcessing/swagger-ui/#/
 
-This includes: 
+Notes Endpoint : http://localhost:7000/api/dataProcessing/notes
+
+**This includes:** 
  - Spring boot application with rest controllers
  - Core module encapsulating the service level code, object mappers, entities, and repositories for DB interaction.
  - Model module encapsulating the DTOs and Feign clients other applications would need for calling these endpoints in the API module.
  - Liquibase artifacts to build domains by schema (this requires some docker work for sqlServer)
 
-This does not include:
+**This does not include:**
  - Completed Auth implementation
  - More complex processing in the service layer
  - Unit tests
